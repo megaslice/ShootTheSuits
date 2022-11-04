@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Megaslice.png" type="Texture" id=3]
 [ext_resource path="res://Timer.gd" type="Script" id=4]
+[ext_resource path="res://theme.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 13
+font_data = ExtResource( 2 )
 
 [node name="Main" type="Node2D"]
 
@@ -10,6 +16,69 @@
 margin_right = 440.0
 margin_bottom = 250.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="Title" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="title" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 106.0
+margin_top = 44.0
+margin_right = 346.0
+margin_bottom = 91.0
+theme = ExtResource( 5 )
+text = "Defeat the Suits
+"
+
+[node name="Megaslice" type="Sprite" parent="Title/title"]
+position = Vector2( 117, 83 )
+scale = Vector2( 0.170972, 0.191511 )
+texture = ExtResource( 3 )
+
+[node name="title2" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 183.0
+margin_top = 83.0
+margin_right = 423.0
+margin_bottom = 130.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 1 )
+text = "work for
+"
+
+[node name="title3" type="Label" parent="Title"]
+modulate = Color( 0.952941, 1, 0, 1 )
+margin_left = 7.0
+margin_top = 187.0
+margin_right = 247.0
+margin_bottom = 234.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 1 )
+text = "coding: Richard
+"
+
+[node name="title4" type="Label" parent="Title"]
+modulate = Color( 0.172549, 0.278431, 0.823529, 1 )
+margin_left = 144.0
+margin_top = 187.0
+margin_right = 384.0
+margin_bottom = 234.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 1 )
+text = "graphics: Andrei
+"
+
+[node name="title5" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 309.0
+margin_top = 188.0
+margin_right = 549.0
+margin_bottom = 235.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 1 )
+text = "sound: Bart
+"
 
 [node name="bombs" type="Node2D" parent="."]
 
@@ -55,7 +124,7 @@ margin_bottom = 40.0
 modulate = Color( 1, 0.152941, 0.152941, 1 )
 margin_right = 40.0
 margin_bottom = 14.0
-theme = ExtResource( 2 )
+theme = ExtResource( 5 )
 text = "00
 "
 
@@ -66,7 +135,7 @@ margin_top = 1.0
 margin_right = 334.0
 margin_bottom = 92.0
 rect_pivot_offset = Vector2( 191, 223 )
-theme = ExtResource( 2 )
+theme = ExtResource( 5 )
 text = "00"
 
 [node name="score2" type="Label" parent="HUD"]
@@ -74,7 +143,7 @@ modulate = Color( 0.4, 1, 0.435294, 1 )
 margin_left = 128.0
 margin_right = 186.0
 margin_bottom = 91.0
-theme = ExtResource( 2 )
+theme = ExtResource( 5 )
 text = "00
 "
 
@@ -83,7 +152,7 @@ modulate = Color( 0.968627, 1, 0.337255, 1 )
 margin_left = 392.0
 margin_right = 450.0
 margin_bottom = 91.0
-theme = ExtResource( 2 )
+theme = ExtResource( 5 )
 text = "00
 "
 
