@@ -21,14 +21,26 @@ func _process(delta):
 			position.x += delta * 100 * Input.get_joy_axis(PLAYER,0)
 		if Input.get_joy_axis(PLAYER,0) > 0.1:
 			position.x += delta * 100 * Input.get_joy_axis(PLAYER,0)
-		if Input.is_joy_button_pressed(PLAYER, 0) and shoot_timer>1: #and get_node("/root/Main/bullets"+str(PLAYER)).get_child_count()<3:
+		if (Input.is_joy_button_pressed(PLAYER, 0) or Input.is_key_pressed(KEY_SPACE)) and shoot_timer>1: #and get_node("/root/Main/bullets"+str(PLAYER)).get_child_count()<3:
+			$fire.play()
 			var bullet = Bullet.instance()
 			bullet.position = position
+			bullet.modulate = modulate
 			get_node("/root/Main/bullets"+str(PLAYER)).add_child(bullet)
 			shoot_timer=0
+		if Input.is_key_pressed(KEY_LEFT):
+			position.x -= delta * 100
+		elif Input.is_key_pressed(KEY_RIGHT):
+			position.x += delta * 100 
 	else:
 		visible = false
+		if (Input.is_joy_button_pressed(PLAYER, 0) or Input.is_key_pressed(KEY_SPACE)) and shoot_timer>1: #and get_node("/root/Main/bullets"+str(PLAYER)).get_child_count()<3:
+			$spawn.play()
+			alive = true
+			score = 0
+	position.x = clamp(position.x, 10, 410)
 
 
 func _on_Player_area_entered(area):
 	alive = false
+	$die.play()

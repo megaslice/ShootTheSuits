@@ -14,7 +14,7 @@ func _process(delta):
 		speed = -speed
 		position.x = 0
 		position.y += 4
-	if randf()<0.05:
+	if randf()<0.01:
 		var bomb = Bomb.instance()
 		bomb.position = position
 		get_node("/root/Main/bombs").add_child(bomb)
@@ -24,4 +24,7 @@ func _process(delta):
 func _on_Alien_area_entered(area):
 	if 'player' in area:
 		get_node("/root/Main/Player"+str(area.player)).score+=1
+	$die.play()	
+	visible = false
+	yield(get_tree().create_timer(1.0), "timeout")
 	queue_free()
