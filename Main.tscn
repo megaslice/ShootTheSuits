@@ -2,24 +2,21 @@
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Megaslice.png" type="Texture" id=3]
+[ext_resource path="res://megaslice-isotype-bw-trans-1024px.png" type="Texture" id=3]
 [ext_resource path="res://Timer.gd" type="Script" id=4]
 [ext_resource path="res://theme.tres" type="Theme" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=6]
+[ext_resource path="res://megaslice-isotype2.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 13
 font_data = ExtResource( 2 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 440.0
-margin_bottom = 250.0
+margin_right = 426.0
+margin_bottom = 240.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -45,86 +42,38 @@ text = "000
 
 "
 
-[node name="Title" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="title" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
-margin_left = 106.0
-margin_top = 44.0
-margin_right = 346.0
-margin_bottom = 91.0
-theme = ExtResource( 5 )
-text = "Defeat the Suits
-"
-
-[node name="Megaslice" type="Sprite" parent="Title/title"]
-position = Vector2( 117, 83 )
-scale = Vector2( 0.170972, 0.191511 )
-texture = ExtResource( 3 )
-
-[node name="title3" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
-margin_left = 7.0
-margin_top = 94.0
-margin_right = 217.0
-margin_bottom = 141.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 2 )
-text = "Highscore:
-"
-
-[node name="highscore" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
-margin_left = 30.0
-margin_top = 115.0
-margin_right = 240.0
-margin_bottom = 166.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 2 )
-text = "0000
-"
-
-[node name="title2" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
-margin_left = 214.0
-margin_top = 82.0
-margin_right = 454.0
-margin_bottom = 129.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 1 )
-text = "with
-"
-
 [node name="Player0" parent="." instance=ExtResource( 1 )]
-TEXT = "coding
-
-Richard"
+__meta__ = {
+"_edit_group_": true
+}
+TEXT = "CODE Richard"
 COLOR = Color( 1, 1, 1, 1 )
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 PLAYER = 1
-TEXT = "sound
-
-Bart"
+TEXT = "SFX Bart"
 COLOR = Color( 1, 0, 0, 1 )
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 PLAYER = 2
-TEXT = "graphics
-
-Andrei"
+TEXT = "GFX Andrei"
 COLOR = Color( 0, 0.462745, 1, 1 )
 
 [node name="Player3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 PLAYER = 3
-TEXT = "bossing
-
-Justin"
+TEXT = "BOSS Justin"
 COLOR = Color( 1, 0.309804, 0.780392, 1 )
 
 [node name="bombs" type="Node2D" parent="."]
@@ -135,5 +84,67 @@ autostart = true
 script = ExtResource( 4 )
 
 [node name="aliens" type="Node2D" parent="."]
+
+[node name="Title" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Megaslice-isotype-bw-trans-1024Px" type="Sprite" parent="Title"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 230, 123 )
+scale = Vector2( 0.178223, 0.178223 )
+texture = ExtResource( 3 )
+
+[node name="title" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 94.0
+margin_top = 24.0
+margin_right = 334.0
+margin_bottom = 71.0
+theme = ExtResource( 5 )
+text = "DEFEAT THE SUITS
+"
+
+[node name="title3" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 7.0
+margin_top = 94.0
+margin_right = 108.0
+margin_bottom = 141.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Highscore:
+"
+
+[node name="title4" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 333.0
+margin_top = 97.0
+margin_right = 434.0
+margin_bottom = 144.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "megaslice
+company
+gamejam
+"
+
+[node name="highscore" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 30.0
+margin_top = 115.0
+margin_right = 98.0
+margin_bottom = 161.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "0000
+"
+
+[node name="Megaslice-isotype2" type="Sprite" parent="Title"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 210, 128 )
+scale = Vector2( 1.42969, 1.42969 )
+texture = ExtResource( 7 )
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_Timer_timeout"]
