@@ -6,6 +6,7 @@ var Bomb = preload("res://Bomb.tscn")
 
 var shoot_timeout = 0
 
+
 func _process(delta):
 	shoot_timeout -= delta
 
@@ -19,7 +20,7 @@ func _process(delta):
 		speed = -speed
 		position.x = 0
 		position.y -= 5
-	if shoot_timeout <= 0:
+	if shoot_timeout <= 0 and visible == true:
 		var bomb = Bomb.instance()
 		bomb.position = position
 		get_node("/root/Main/bombs").add_child(bomb)
