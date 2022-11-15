@@ -1,21 +1,49 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Megaslice.png" type="Texture" id=3]
 [ext_resource path="res://Timer.gd" type="Script" id=4]
 [ext_resource path="res://theme.tres" type="Theme" id=5]
+[ext_resource path="res://Main.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 13
 font_data = ExtResource( 2 )
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 440.0
 margin_bottom = 250.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.662745 )
+position = Vector2( 229, 0 )
+amount = 80
+lifetime = 4.0
+emission_shape = 2
+emission_rect_extents = Vector2( 320, 1 )
+direction = Vector2( 0, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 82.57
+initial_velocity_random = 0.61
+
+[node name="score" type="Label" parent="."]
+margin_left = 380.0
+margin_top = -2.0
+margin_right = 620.0
+margin_bottom = 70.0
+theme = ExtResource( 5 )
+text = "000
+
+"
 
 [node name="Title" type="Control" parent="."]
 margin_right = 40.0
@@ -36,124 +64,76 @@ position = Vector2( 117, 83 )
 scale = Vector2( 0.170972, 0.191511 )
 texture = ExtResource( 3 )
 
+[node name="title3" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 7.0
+margin_top = 94.0
+margin_right = 217.0
+margin_bottom = 141.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Highscore:
+"
+
+[node name="highscore" type="Label" parent="Title"]
+modulate = Color( 1, 0.152941, 0.152941, 1 )
+margin_left = 30.0
+margin_top = 115.0
+margin_right = 240.0
+margin_bottom = 166.0
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "0000
+"
+
 [node name="title2" type="Label" parent="Title"]
 modulate = Color( 1, 0.152941, 0.152941, 1 )
-margin_left = 183.0
-margin_top = 83.0
-margin_right = 423.0
-margin_bottom = 130.0
+margin_left = 214.0
+margin_top = 82.0
+margin_right = 454.0
+margin_bottom = 129.0
 theme = ExtResource( 5 )
 custom_fonts/font = SubResource( 1 )
-text = "work for
+text = "with
 "
 
-[node name="title3" type="Label" parent="Title"]
-modulate = Color( 0.952941, 1, 0, 1 )
-margin_left = 7.0
-margin_top = 187.0
-margin_right = 247.0
-margin_bottom = 234.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 1 )
-text = "coding: Richard
-"
+[node name="Player0" parent="." instance=ExtResource( 1 )]
+TEXT = "coding
 
-[node name="title4" type="Label" parent="Title"]
-modulate = Color( 0.172549, 0.278431, 0.823529, 1 )
-margin_left = 144.0
-margin_top = 187.0
-margin_right = 384.0
-margin_bottom = 234.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 1 )
-text = "graphics: Andrei
-"
+Richard"
+COLOR = Color( 1, 1, 1, 1 )
 
-[node name="title5" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
-margin_left = 309.0
-margin_top = 188.0
-margin_right = 549.0
-margin_bottom = 235.0
-theme = ExtResource( 5 )
-custom_fonts/font = SubResource( 1 )
-text = "sound: Bart
-"
+[node name="Player1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 1 )
+PLAYER = 1
+TEXT = "sound
+
+Bart"
+COLOR = Color( 1, 0, 0, 1 )
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 1 )
+PLAYER = 2
+TEXT = "graphics
+
+Andrei"
+COLOR = Color( 0, 0.462745, 1, 1 )
+
+[node name="Player3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 1 )
+PLAYER = 3
+TEXT = "bossing
+
+Justin"
+COLOR = Color( 1, 0.309804, 0.780392, 1 )
 
 [node name="bombs" type="Node2D" parent="."]
 
-[node name="Player0" parent="." instance=ExtResource( 1 )]
-modulate = Color( 1, 0.356863, 0.356863, 1 )
-position = Vector2( 363, 227 )
-
-[node name="Player1" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0.478431, 0.439216, 1, 1 )
-position = Vector2( 261, 227 )
-PLAYER = 1
-
-[node name="Player2" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0.4, 1, 0.435294, 1 )
-position = Vector2( 180, 228 )
-PLAYER = 2
-
-[node name="Player3" parent="." instance=ExtResource( 1 )]
-modulate = Color( 0.968627, 1, 0.337255, 1 )
-position = Vector2( 98, 228 )
-PLAYER = 3
-
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 autostart = true
 script = ExtResource( 4 )
 
-[node name="bullets0" type="Node2D" parent="."]
-
-[node name="bullets1" type="Node2D" parent="."]
-
-[node name="bullets2" type="Node2D" parent="."]
-
-[node name="bullets3" type="Node2D" parent="."]
-
 [node name="aliens" type="Node2D" parent="."]
-
-[node name="HUD" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="score0" type="Label" parent="HUD"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
-margin_right = 40.0
-margin_bottom = 14.0
-theme = ExtResource( 5 )
-text = "00
-"
-
-[node name="score1" type="Label" parent="HUD"]
-modulate = Color( 0.478431, 0.439216, 1, 1 )
-margin_left = 276.0
-margin_top = 1.0
-margin_right = 334.0
-margin_bottom = 92.0
-rect_pivot_offset = Vector2( 191, 223 )
-theme = ExtResource( 5 )
-text = "00"
-
-[node name="score2" type="Label" parent="HUD"]
-modulate = Color( 0.4, 1, 0.435294, 1 )
-margin_left = 128.0
-margin_right = 186.0
-margin_bottom = 91.0
-theme = ExtResource( 5 )
-text = "00
-"
-
-[node name="score3" type="Label" parent="HUD"]
-modulate = Color( 0.968627, 1, 0.337255, 1 )
-margin_left = 392.0
-margin_right = 450.0
-margin_bottom = 91.0
-theme = ExtResource( 5 )
-text = "00
-"
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_Timer_timeout"]

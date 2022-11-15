@@ -1,4 +1,4 @@
 extends Area2D
 
 func _process(delta):
-	position.y += delta * 90
+	position.y += delta * (80 + Globals.get_level()*10)

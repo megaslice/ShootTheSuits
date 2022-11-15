@@ -4,20 +4,26 @@ var speed = 30
 
 var Bomb = preload("res://Bomb.tscn")
 
+var shoot_timeout = 0
+
 func _process(delta):
-	position.x += speed * delta
+	shoot_timeout -= delta
+
+	
+	position.x += speed * Globals.get_level() * delta
 	if position.x > 410:
 		speed = -speed
 		position.x = 410
-		position.y += 4
+		position.y += 5
 	if position.x < 0:
 		speed = -speed
 		position.x = 0
-		position.y += 4
-	if randf()<0.01:
+		position.y -= 5
+	if shoot_timeout <= 0:
 		var bomb = Bomb.instance()
 		bomb.position = position
 		get_node("/root/Main/bombs").add_child(bomb)
+		shoot_timeout = randf()*7
 
 
 
