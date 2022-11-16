@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://theme.tres" type="Theme" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=6]
 [ext_resource path="res://megaslice-isotype2.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
@@ -33,11 +37,12 @@ initial_velocity = 82.57
 initial_velocity_random = 0.61
 
 [node name="score" type="Label" parent="."]
-margin_left = 380.0
-margin_top = -2.0
-margin_right = 620.0
-margin_bottom = 70.0
+margin_left = 377.0
+margin_top = 1.0
+margin_right = 617.0
+margin_bottom = 82.0
 theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 3 )
 text = "000
 
 "
@@ -56,7 +61,7 @@ __meta__ = {
 }
 PLAYER = 1
 TEXT = "SFX Bart"
-COLOR = Color( 1, 0, 0, 1 )
+COLOR = Color( 0.85098, 0.278431, 0.160784, 1 )
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 1 )
@@ -97,17 +102,17 @@ scale = Vector2( 0.178223, 0.178223 )
 texture = ExtResource( 3 )
 
 [node name="title" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
+modulate = Color( 0.85098, 0.278431, 0.160784, 1 )
 margin_left = 94.0
 margin_top = 24.0
 margin_right = 334.0
 margin_bottom = 71.0
 theme = ExtResource( 5 )
-text = "DEFEAT THE SUITS
+text = "SHOOT THE SUITS
 "
 
 [node name="title3" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
+modulate = Color( 0.85098, 0.278431, 0.160784, 1 )
 margin_left = 7.0
 margin_top = 94.0
 margin_right = 108.0
@@ -118,7 +123,7 @@ text = "Highscore:
 "
 
 [node name="title4" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
+modulate = Color( 0.85098, 0.278431, 0.160784, 1 )
 margin_left = 333.0
 margin_top = 97.0
 margin_right = 434.0
@@ -131,7 +136,7 @@ gamejam
 "
 
 [node name="highscore" type="Label" parent="Title"]
-modulate = Color( 1, 0.152941, 0.152941, 1 )
+modulate = Color( 0.85098, 0.278431, 0.160784, 1 )
 margin_left = 30.0
 margin_top = 115.0
 margin_right = 98.0
@@ -142,7 +147,7 @@ text = "0000
 "
 
 [node name="Megaslice-isotype2" type="Sprite" parent="Title"]
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 0.85098, 0.278431, 0.160784, 1 )
 position = Vector2( 210, 128 )
 scale = Vector2( 1.42969, 1.42969 )
 texture = ExtResource( 7 )
