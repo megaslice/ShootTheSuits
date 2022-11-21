@@ -34,8 +34,16 @@ func _process(delta):
 		Globals.show_title = true
 
 	get_node("/root/Main/Title").visible = Globals.show_title
-		
 
-func _input(event):
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+	if Input.is_action_just_pressed("p1"):	
+		$Player0.CONTROLLER = ($Player0.CONTROLLER + 1) % 4
+	if Input.is_action_just_pressed("p2"):	
+		$Player1.CONTROLLER = ($Player1.CONTROLLER + 1) % 4
+	if Input.is_action_just_pressed("p3"):	
+		$Player2.CONTROLLER = ($Player2.CONTROLLER + 1) % 4
+	if Input.is_action_just_pressed("p4"):	
+		$Player3.CONTROLLER = ($Player3.CONTROLLER + 1) % 4
+
+

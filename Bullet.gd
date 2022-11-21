@@ -6,3 +6,7 @@ func _process(delta):
 	position.y -= delta * (80 + Globals.get_level()*20)
 	if position.y < 0:
 		queue_free()
+
+
+func _on_Bullet_area_entered(area):
+	queue_free()
